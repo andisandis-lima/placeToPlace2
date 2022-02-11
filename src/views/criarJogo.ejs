@@ -1,0 +1,94 @@
+<%- include('./partials/head') %>
+<body>
+    <%- include('./partials/header') %>  
+     
+
+    <main>
+         <!--Titulo da Página-->
+         <div class="row justify-content-center">
+            <div class="col-auto">
+                <h1><span class="badge rounded-pill bg-success titulo">Crie um Jogo</span></h1>
+            </div>
+        </div>
+        <div class="fundo">
+            <!--Formulário-->
+            <form id="formulario" name="form" action='/criar' method="POST">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3 campos">
+                            <label for="formGroupExampleInput"></label>
+                            <input type="text" class="form-control" name="cep"
+                            id="formGroupExampleInput" placeholder="CEP">
+                        </div>
+                       
+                        <div class="col-sm-8 campos">
+                            <label for="formGroupExampleInput"></label>                        
+                            <input type="text" class="form-control" name="endereco"
+                            id="formGroupExampleInput" placeholder="Endereço">                    
+                        </div>                  
+                    </div>
+                    <div class="row">     
+                        <div class="col-sm-2 campos">
+                            <label for="formGroupExampleInput"></label>
+                            <input type="number" class="form-control" name="numero"
+                            id="formGroupExampleInput" placeholder="N°">
+                        </div>  
+                        <div class="col-sm-3 campos">
+                            <label for="formGroupExampleInput"></label>
+                            <input type="text" class="form-control" name="bairro" 
+                            id="formGroupExampleInput" placeholder="Bairro">
+                        </div>     
+                        <div class="col-sm-2 campos">
+                            <label for="exampleFormControlSelect1"></label>
+                            <select class="form-control" id="exampleFormControlSelect1" name="estado">
+                                <option selected disabled>UF</option>
+                                <option>SP</option>
+                                <option>RJ</option>
+                                <option>BA</option> 
+                            </select>
+                        </div>
+                        <div class="col-sm-4 campos">
+                            <label for="formGroupExampleInput"></label>
+                            <input type="text" class="form-control"  name="cidade"
+                            id="formGroupExampleInput" placeholder="Cidade" required>
+                        </div>                  
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 campos">
+                            <label for="formGroupExampleInput"></label>
+                            <input type="date" class="form-control" name="data"
+                            id="formGroupExampleInput" placeholder="Data" required>
+                        </div>
+                        <div class="col-sm-3 campos">
+                            <label for="formGroupExampleInput"></label>
+                            <input type="time" class="form-control" name="hora"
+                            id="formGroupExampleInput" placeholder="Horário" required>
+                        </div>                    
+                        <div class="col-sm-4 campos">
+                            <label for="exampleFormControlSelect1"></label>
+                            <select class="form-control" id="exampleFormControlSelect1" name="esporte">
+                                <option selected disabled>Esporte:</option>
+                                <option>Futebol</option>
+                                <option>Basquete</option>
+                                <option>Volêi</option> 
+                            </select>
+                        </div>
+                    </div>
+               
+                    <!--Botão Criar-->
+                    <div class="text-center"> 
+                        <button  type="submit" id="criar" value="criar" class="btn btn-primary botao">Criar</button>
+                        <!--onclick="abrir();"-->
+                    </div>
+                    
+                </div>
+            </form> 
+         
+        </div>
+    </main>
+
+    <%- include('./partials/footer') %>  
+    <%- include('./partials/popUp') %> 
+</body>
+
+</html>

@@ -1,0 +1,204 @@
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    box-sizing: border-box   
+}
+
+body {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 100%;
+    width: 100%;
+}
+
+nav{
+    font-family: Play;
+}
+
+
+/*titulo*/
+.titulo{
+    font-family: Play;
+    margin-top: 5vw;
+    font-size: 25px !important;
+    color: #ffffff
+}
+
+/*efeito de mudancao de cor no titulo do site*/
+.titulo {
+    background: linear-gradient(100deg, #ff5100, #ff0101);
+    background-size: 400% 400%;
+    -webkit-animation: AnimationName 4s ease infinite;
+    -moz-animation: AnimationName 4s ease infinite;
+    animation: AnimationName 4s ease infinite;
+    opacity: 0.8;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 53%}
+    50%{background-position:100% 48%}
+    100%{background-position:0% 53%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 53%}
+    50%{background-position:100% 48%}
+    100%{background-position:0% 53%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 53%}
+    50%{background-position:100% 48%}
+    100%{background-position:0% 53%}
+}
+
+/*retangulo de fund site*/
+.fundo {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    font-family: Play;
+    align-items: center;
+    margin: 2% auto 4% auto;
+}
+
+/*efeito de mudança de cor*/
+.fundo {
+    background: linear-gradient(100deg, #ff5100, #ff0101);
+    background-size: 400% 400%;
+    -webkit-animation: AnimationName 4s ease infinite;
+    -moz-animation: AnimationName 4s ease infinite;
+    animation: AnimationName 4s ease infinite;
+    opacity: 0.8;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 53%}
+    50%{background-position:100% 48%}
+    100%{background-position:0% 53%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 53%}
+    50%{background-position:100% 48%}
+    100%{background-position:0% 53%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 53%}
+    50%{background-position:100% 48%}
+    100%{background-position:0% 53%}
+}
+
+/*formulario*/
+#formulario {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 10px;  
+    margin: 10vh auto 0 auto;
+}
+
+/*campos do formulario*/
+.campos {
+    justify-content: center;
+    margin-bottom: 40px ;
+}
+
+#inputFile {
+    display: flex;
+}
+
+#inputFile label {
+    margin-top: 18px;
+    color: #ffffff;
+    font-size: 8px;
+    justify-content: center;
+}
+
+#inputFile input {
+    margin-left: 8px;
+    margin-top: 15px;
+    justify-content: center;
+}
+
+.row {
+    justify-content: center;
+}
+
+/*card de informacoes*/
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.bg-vd {
+    height: 100vh;
+    width: 100vh;
+}
+/*botoes do site*/
+.botao {
+    background-color: #ffffff !important;
+    border: 1px solid #000000 !important;
+    color: #000000 !important;
+    font-family: Play;
+    font-size: 15px !important;
+    margin: 10% 20px 20px
+}
+
+/*alinhamento dos botoes no horizontal*/
+#voltar {
+    margin-top: 10px;
+    display: flex;
+    justify-content: baseline;
+}
+
+#footer {
+    margin-top: 15%;
+}
+
+
+/*icones redes socias do footer*/
+
+.icone {
+    margin: 1% 1%;
+    color: #000000 !important
+}
+
+
+@media only screen and (max-width:500px) {
+
+    /*titulo*/
+    .titulo {
+        font-size: 16px !important
+    }
+
+    .fundo {
+        width: 80%;
+    }
+
+    /*formulario*/
+    #formulario {
+        margin-top: 6vh;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        font-size: 6px;
+    }
+
+    /*texto dentro do card*/
+    .card-text {
+        font-size: 8px;
+    }
+
+    /*botao*/
+    .botao {
+        max-width: 60%;
+        font-size: 15px !important;
+        font-family: Play
+    }
+}

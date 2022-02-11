@@ -1,0 +1,41 @@
+<%- include('./partials/head') %>
+
+<body>
+  
+  <%- include('./partials/header') %>      
+  <main>
+    <!--Titulo da Página-->
+    <div class="row justify-content-center">
+      <div class="col-auto">
+        <h1><span class="badge rounded-pill bg-success titulo">Jogos Perto de Você</span></h1>
+      </div>
+    </div>
+    <!--Conteudo-->
+    <div class="fundo">
+      <div class="card" style="width: 90%;">
+        <img class="card-img-top" src="./img/logoPlaceToPlay.jpg" alt="Imagem de capa do card">
+        <div class="card-body">
+          <h5 class="card-title">Basquete - 25/10/2021 às 21:00</h5>
+          <ul class="list-group">
+            <li class="list-group-item">  
+              Rua Tal, N° 10,<br>
+              Bairro Centro, <br>
+              CEP 07151-522, <br>        
+              Quadra do SESC. <br>
+            </li>
+          </ul>
+          <a href="#" class="btn btn-primary botao">Participar do Jogo</a>
+        </div>
+      </div>
+        </div>
+    
+      <!--Botão voltar-->
+      <div class="col-md-auto text-center"> 
+        <form action="/buscarJogos" method="GET"><button id="singlebutton" name="singlebutton" class="btn btn-primary botao">Voltar</button></form>
+      </div>
+    </div>        
+  </main>
+  <%- include('./partials/footer') %>  
+
+</body>
+</html>

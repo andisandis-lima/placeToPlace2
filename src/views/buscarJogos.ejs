@@ -1,0 +1,79 @@
+<%- include('./partials/head') %>
+
+<body>
+    <%- include('./partials/header') %>   
+    <!--<div class="bg-vd">
+        <video autoplay muted loop src="./video/bg1.mp4"></video>
+    </div>-->
+    <main>
+        
+         <!--Titulo da Página-->
+         <div class="row justify-content-center">
+            <div class="col-auto">
+                <h1><span class="badge rounded-pill bg-success titulo">Busque Jogos Perto de Você</span></h1>
+            </div>
+        </div>
+
+      
+        <div class="fundo">
+            <!--Formulário-->
+            <form id="formulario" name="form" action="/buscarJogos" method="POST">
+                <div class="container">
+                    <div class="row">
+                
+                    
+                        <div class="col-sm-4 campos">
+                            <label for="formGroupExampleInput"></label>
+                            <input type="text" class="form-control" name="bairro" 
+                            id="formGroupExampleInput" placeholder="Bairro">
+                        </div>
+                              
+                        <div class="col-sm-4 campos">
+                            <label for="formGroupExampleInput"></label>
+                            <input type="text" class="form-control" name="cidade"
+                            id="cities" name="cities" placeholder="Cidade" required> 
+                        </div> 
+                        
+                        <div class="col-sm-2 campos">
+                            <label for="exampleFormControlSelect1"></label>
+                            <select class="form-control" id="exampleFormControlSelect1" name="estado">
+                                <option selected disabled>UF</option>
+                                <option>SP</option>
+                                <option>RJ</option>
+                                <option>BA</option> 
+                            </select>
+                        </div>
+                     
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 campos">
+                            <label for="formGroupExampleInput"></label>
+                            <input type="date" class="form-control" name="data"
+                            id="formGroupExampleInput" placeholder="Data" required>
+                        </div>
+
+                            
+                        <div class="col-sm-4 campos">
+                            <label for="exampleFormControlSelect1"></label>
+                            <select class="form-control" id="exampleFormControlSelect1" name="esporte">
+                                <option selected disabled>Esporte:</option>
+                                <option>Futebol</option>
+                                <option>Basquete</option>
+                                <option>Volêi</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!--Botão Buscar-->
+                    <div class="text-center"> 
+                        <button type="submit" id="criar" class="btn btn-primary botao">Buscar</button>
+                    </div>
+                </div>
+            </form> 
+           
+        </div>  
+    </main>
+
+    <%- include('./partials/footer') %>  
+
+</body>
+</html>

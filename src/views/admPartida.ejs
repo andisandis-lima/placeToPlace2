@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+    <link rel="stylesheet" href="./stylesheets/admPartida.css">
+    
+<body>  
+    <%- include('./partials/header') %>   
+    <main>
+         <!--Titulo da Página-->
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <h1><span class="badge rounded-pill bg-success titulo">Administrar Partida</span></h1>
+            </div>
+        </div>
+        <!--Conteudo-->
+        <div class="fundo">
+            <div class="adm">
+                <p>Local:</p>
+            </div>
+            <div class="card" style="width: 90%;"> 
+                <% if (jogo && jogo.length != 0) { %>
+                    <% jogo.map(jogo => { %>
+                
+                        <div class="card-body">
+                            <h5 class="card-title"><%= jogo.esporte %> - <%= jogo.data %> às <%= jogo.hora %> </h5>
+                            <ul class="list-group">
+                            <li class="list-group-item">  
+                            <%= jogo.endereco %> , N° <%= jogo.numero %>,<br>
+                            <%= jogo.bairro %>, <br>
+                            <%= jogo.cep %> <br>
+                            </li>
+                            </ul>
+                            <div class="editarApagar">
+
+                                <form action="" method="GET"><button id="singlebutton" name="singlebutton" class="btn btn-primary botao editar">Editar</button></form>
+                                <!--<a class="btn btn-primary botao editar" href="/editarJogo">Editar</a>-->
+
+                                <form method="POST" action="/jogo/<%= jogo && jogo.id %>?_method=DELETE"><button id="singlebutton" name="singlebutton" class="btn btn-primary botao editar">Apagar</button></form>
+                            </div>
+                    <% }); %>
+                    <% } else { %>
+                    <h4>Nenhum Jogo Cadastrado</h4>
+                    <% } %>
+                    
+
+            </div>
+    
+        </div> 
+    </main>
+
+    <%- include('./partials/footer') %>     
+    
+</body>
+</html>

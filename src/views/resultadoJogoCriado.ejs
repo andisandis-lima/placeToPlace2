@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head') %>
+    
+<body>  
+    <%- include('./partials/header') %>   
+    <main>
+        <!--Titulo da Página-->
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <h1><span class="badge rounded-pill bg-success titulo">Você criou um jogo</span></h1>
+            </div>
+        </div>
+        <!--Conteudo-->
+        <div class="fundo">
+            <div class="card" style="width: 90%">
+                <div class="card-body">
+                  <h5 class="card-title"><%= jogo.esporte %> - <%= jogo.data %> às <%= jogo.hora %> </h5>
+                  <ul class="list-group">
+                  <li class="list-group-item">  
+                    <%= jogo.endereco %> , N° <%= jogo.numero %>,<br>
+                    <%= jogo.bairro %>, <br>
+                    <%= jogo.cep %> <br>
+                  </li>
+                  </ul>
+                </div>
+            </div>
+            <div class="col-md-auto text-center" id="voltar" > 
+                <form action="/convidarAmigos" method="GET"><button id="singlebutton" name="singlebutton" class="btn btn-primary botao">Convidar Amigos</button></form>
+                <form action="/admPartida" method="GET"> <button id="singlebutton" name="singlebutton" class="btn btn-primary botao">Administrar Jogo</button></form>
+            </div>   
+        </div>   
+    </main>
+
+    <%- include('./partials/footer') %>  
+</body>
+</html>
