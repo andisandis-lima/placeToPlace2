@@ -3,7 +3,6 @@ const express = require('express');
 const router = express.Router(); //importando router do express
 
 const jogosController = require('../controllers/jogosController');
-const userController = require('../controllers/userController')
 
 //ADM - DELETE erros
 router.get('/admPartida', jogosController.showAdm); 
@@ -25,6 +24,5 @@ router.get('/buscarJogos', jogosController.search);
 
 router.get('/', jogosController.showIndex); 
 router.get('/gerenPartida', jogosController.gerenciarPartida); 
-router.get('/participantes', userController.partic)
 
 module.exports = router;

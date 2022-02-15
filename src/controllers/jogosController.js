@@ -11,7 +11,7 @@ const jogosController = {
     delete(req, res) {
       const { id } = req.params; //pega o usuario
       Jogos.delete(id); // deleta o usuario
-      res.redirect('admPartida', {jogo}); //redireciona
+      res.redirect('admPartida', { jogo }); //redireciona
     },
 
     //CRIAR

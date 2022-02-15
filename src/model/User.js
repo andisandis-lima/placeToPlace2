@@ -10,10 +10,10 @@ const writeToDB = () => { //atualizando no banco de dados, pega o db da memoria 
   //await fs.promises.writeFile('src/database/db.json', json); //jeito assincrono
   //escrevendo no arquivo json, funcao com caminho como primeiro paramentro
 };
-const Jogos = {
+const User = {
     findAll() { 
         return db.users;  
       },
 }
 
-module.exports = Jogos
+module.exports = User

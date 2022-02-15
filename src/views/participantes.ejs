@@ -13,7 +13,7 @@
         <div class="fundo">
             <!--Formulário-->
             <h2>Participantes:</h2>
-            <% if (user) { %>
+            <% if (user && user.length != 0) { %>
                 <% user.map(user => { %>
                     <form>
                             <input type="text" class="btn btn-primary botao" placeholder="<%= user.user %>">
