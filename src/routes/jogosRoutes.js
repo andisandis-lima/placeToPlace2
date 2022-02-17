@@ -26,8 +26,6 @@ router.get('/', jogosController.showIndex);
 router.post('/', jogosController.showIndex); // redirecionar o usuario após ter sido cadastrado ou recuperado a senha
 
 router.get('/gerenPartida', jogosController.gerenciarPartida); 
-router.get('/resultBusca', jogosController.resultBusca);
-router.get('/resultJogoCriado', jogosController.resultJogoCriado); 
 
 
 module.exports = router;

@@ -63,15 +63,7 @@ const jogosController = {
     //GERENCIAR PARTIDA
     gerenciarPartida: (req, res) => {
         res.render("gerenParticipantes");
-    },
-
-    resultBusca: (req, res) => {
-      res.render("resultadoBusca");
-  },
-
-    resultJogoCriado: (req, res) => {
-    res.render("resultadoJogoCriado", { jogo });
-},
+    }
 }
 
 module.exports = jogosController;
