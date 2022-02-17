@@ -173,7 +173,7 @@ html {
 .box .box__ghost .box__ghost-container .box__ghost-eyes .box__eye-left {
   width: 12px;
   height: 12px;
-  background: #332F63;
+  background: #000000;
   border-radius: 50%;
   margin: 0 10px;
   position: absolute;
@@ -182,7 +182,7 @@ html {
 .box .box__ghost .box__ghost-container .box__ghost-eyes .box__eye-right {
   width: 12px;
   height: 12px;
-  background: #332F63;
+  background: #000000;
   border-radius: 50%;
   margin: 0 10px;
   position: absolute;
