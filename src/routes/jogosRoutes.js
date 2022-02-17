@@ -4,7 +4,6 @@ const router = express.Router(); //importando router do express
 
 const jogosController = require('../controllers/jogosController');
 
-//ADM - DELETE erros
 router.get('/admPartida', jogosController.showAdm); 
 router.delete('/jogo/:id', jogosController.delete);
 

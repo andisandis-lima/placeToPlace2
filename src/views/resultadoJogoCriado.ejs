@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <%- include('./partials/head') %>
+    <link rel="stylesheet" href="./stylesheets/main.css">
     
 <body>  
     <%- include('./partials/header') %>   
@@ -24,11 +25,12 @@
                   </li>
                   </ul>
                 </div>
+            
+                <div class="col-md-auto text-center" id="voltar" > 
+                    <form action="/convidarAmigos" method="GET"><button id="singlebutton" name="singlebutton" class="btn btn-primary botao">Convidar Amigos</button></form>
+                    <form action="/admPartida" method="GET"> <button id="singlebutton" name="singlebutton" class="btn btn-primary botao">Administrar Jogo</button></form>
+                </div>   
             </div>
-            <div class="col-md-auto text-center" id="voltar" > 
-                <form action="/convidarAmigos" method="GET"><button id="singlebutton" name="singlebutton" class="btn btn-primary botao">Convidar Amigos</button></form>
-                <form action="/admPartida" method="GET"> <button id="singlebutton" name="singlebutton" class="btn btn-primary botao">Administrar Jogo</button></form>
-            </div>   
         </div>   
     </main>
 

@@ -11,7 +11,8 @@ const jogosController = {
     delete(req, res) {
       const { id } = req.params; //pega o usuario
       Jogos.delete(id); // deleta o usuario
-      res.redirect('admPartida', { jogo }); //redireciona
+      const jogo = Jogos.findAll()
+      res.render('admPartida', { jogo }); //redireciona
     },
 
     //CRIAR
@@ -24,7 +25,7 @@ const jogosController = {
       Jogos.create(jogo); //chamando o metodo da model passando o usuario como parametro
       //e o arquivo da imagem
       //res.redirect('/resultadoJogoCriado'); //redirecionando para tela desejada 
-      res.render('resultadoJogoCriado',  { jogo } )
+      res.render('resultadoJogoCriado', { jogo })
     },
 
     //EDITAR
@@ -36,7 +37,7 @@ const jogosController = {
         const { id } = req.params; //pegando o id
         const jogo = req.body; //pegando o usuario
         Jogos.update(id, jogo); 
-        res.redirect('/resultadoJogoCriado');
+        res.redirect('resultadoJogoCriado');
     },
 
     //BUSCAR
