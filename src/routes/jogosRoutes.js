@@ -21,7 +21,10 @@ router.get('/editarJogo', jogosController.update);
 router.get('/buscarJogos', jogosController.show); //criar filtro com metodo index
 router.get('/procurarJogos', jogosController.search);
 
-router.get('/', jogosController.showIndex); 
+router.get('/', jogosController.showIndex);
+
+router.post('/', jogosController.showIndex); // redirecionar o usuario após ter sido cadastrado ou recuperado a senha
+
 router.get('/gerenPartida', jogosController.gerenciarPartida); 
 router.get('/resultBusca', jogosController.resultBusca);
 router.get('/resultJogoCriado', jogosController.resultJogoCriado); 

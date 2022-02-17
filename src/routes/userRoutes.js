@@ -8,4 +8,12 @@ router.get('/participantes', userController.partic);
 
 router.get('/retiraUser', userController.retiraUser)
 
+router.get ('/register', userController.inicio);
+
+router.post ('/register/code', userController.code);
+
+router.post ('/profile', userController.perfilregistro);
+
+router.get ('/error', userController.erro);
+
 module.exports = router;
