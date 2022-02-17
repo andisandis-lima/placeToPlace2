@@ -10,7 +10,8 @@
         </div>
         <div class="fundo">
             <!--Formulário-->
-            <form id="formulario" action='/editarJogo/:id?_method=PUT' method="POST">
+            <!--Rota para editar <form id="formulario" action='/editarJogo/:id?_method=PUT' method="POST">-->
+            <form id="formulario" action='/editarJogo' method="GET">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3 campos">
@@ -48,19 +49,19 @@
                         <div class="col-sm-4 campos">
                             <label for="formGroupExampleInput"></label>
                             <input type="text" class="form-control"  name="cidade"
-                            id="formGroupExampleInput" placeholder="Cidade" required>
+                            id="formGroupExampleInput" placeholder="Cidade">
                         </div>                   
                     </div>
                     <div class="row">
                         <div class="col-sm-4 campos">
                             <label for="formGroupExampleInput"></label>
                             <input type="date" class="form-control" name="data"
-                            id="formGroupExampleInput" placeholder="Data" required>
+                            id="formGroupExampleInput" placeholder="Data">
                         </div>
                         <div class="col-sm-3 campos">
                             <label for="formGroupExampleInput"></label>
                             <input type="time" class="form-control" name="hora"
-                            id="formGroupExampleInput" placeholder="Horário" required>
+                            id="formGroupExampleInput" placeholder="Horário">
                         </div>                    
                         <div class="col-sm-4 campos">
                             <label for="exampleFormControlSelect1"></label>
@@ -72,15 +73,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-4 campos">
-                            <div id="inputFile" class="campos inputFile icones">
-                                <label><ion-icon size="large" name="camera"></ion-icon></label>
-                                <input type="file" name="fotoLugar" id="fotoLugar" class="form-control campos">
-                            </div>
-            
-                        </div>
-                    </div>
+                    
                     <!--Botão Criar-->
                     <div class="text-center"> 
                         <button type="submit" id="criar" class="btn btn-primary botao">Concluir</button>

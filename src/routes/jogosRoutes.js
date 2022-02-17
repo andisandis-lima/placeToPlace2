@@ -9,19 +9,22 @@ router.delete('/jogo/:id', jogosController.delete);
 
 //CRIAR - OK
 router.get('/criarJogo', jogosController.showCriar);
-router.post('/criar', jogosController.store);
+router.post('/jogoCriado', jogosController.store);
 
 //EDITAR - PUT erros
-router.get('/editarJogo', jogosController.edit)
-router.get('/editarJogo/:id', jogosController.update);
-router.put('/editarJogo', jogosController.update);
+router.get('/editar', jogosController.edit);
+router.get('/editarJogo', jogosController.update);
+//router.get('/editarJogo/:id', jogosController.update);
+//router.put('/editarJogo', jogosController.update);
 
 //BUSCA - POST erros
 router.get('/buscarJogos', jogosController.show); //criar filtro com metodo index
-router.get('/buscarJogos', jogosController.search);
-
+router.get('/procurarJogos', jogosController.search);
 
 router.get('/', jogosController.showIndex); 
 router.get('/gerenPartida', jogosController.gerenciarPartida); 
+router.get('/resultBusca', jogosController.resultBusca);
+router.get('/resultJogoCriado', jogosController.resultJogoCriado); 
+
 
 module.exports = router;

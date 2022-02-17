@@ -5,6 +5,9 @@ const userController = {
         partic: (req,res) => {
             const user = User.findAll()
             res.render("participantes", { user })            
+          },
+        retiraUser: (req,res) => {
+          res.send("ok")  
           }
         }
 

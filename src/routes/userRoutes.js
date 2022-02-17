@@ -6,4 +6,6 @@ const userController = require('../controllers/userController');
 
 router.get('/participantes', userController.partic);
 
+router.get('/retiraUser', userController.retiraUser)
+
 module.exports = router;

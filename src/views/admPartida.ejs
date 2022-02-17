@@ -32,10 +32,13 @@
                             </ul>
                             <div class="editarApagar">
 
-                                <form action="" method="GET"><button id="singlebutton" name="singlebutton" class="btn btn-primary botao editar">Editar</button></form>
+                                <form method="GET" action="/editarJogo"><button class="btn btn-primary botao editar">Editar</button></form>
                                 <!--<a class="btn btn-primary botao editar" href="/editarJogo">Editar</a>-->
 
-                                <form method="POST" action="/jogo/<%= jogo && jogo.id %>?_method=DELETE"><button id="singlebutton" name="singlebutton" class="btn btn-primary botao editar">Apagar</button></form>
+                                <form method="POST" action="/jogo/<%= jogo && jogo.id %>?_method=DELETE"><button class="btn btn-primary botao editar">Apagar</button></form>
+
+                                <form method="GET" action="/participantes"><button class="btn btn-primary botao editar">Geranciar Particiapantes</button></form>
+                                
                             </div>
                     <% }); %>
                     <% } else { %>
@@ -46,8 +49,8 @@
                             <h4>O que deseja fazer?</h4>
                         </div>
                         <div class="row justify-content-center">
-                            <form action="/criarJogo" method="GET"><button id="singlebutton" name="singlebutton" class="btn btn-primary botao editar">Criar Jogo</button></form>
-                            <form action="/buscarJogos" method="GET"><button id="singlebutton" name="singlebutton" class="btn btn-primary botao editar">Pesquisar Jogos</button></form>
+                            <form action="/criarJogo" method="GET"><button id="singlebutton" class="btn btn-primary botao editar">Criar Jogo</button></form>
+                            <form action="/buscarJogos" method="GET"><button id="singlebutton" class="btn btn-primary botao editar">Pesquisar Jogos</button></form>
                         </div>
                     <% } %>
                     

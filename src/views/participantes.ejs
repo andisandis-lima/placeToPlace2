@@ -17,8 +17,7 @@
                 <% user.map(user => { %>
                     <form>
                             <input type="text" class="btn btn-primary botao" placeholder="<%= user.user %>">
-                            <button type="button" class="btn btn-primary botao">Excluir participante</button>
-                            
+                            <form method="GET" action="/retiraUser"><button class="btn btn-primary botao editar">Excluir participante</button></form>
                     </form>
                     <% }); %>
                 <% } else { %>
@@ -26,7 +25,7 @@
                 <% }; %>
 
                 <div class="text-center"> 
-                <form action="" method="GET"><button id="singlebutton" class="btn btn-primary botao editar">Voltar</button></form>
+                <form action="/admPartida" method="GET"><button id="singlebutton" class="btn btn-primary botao editar">Voltar</button></form>
                 </div>
         </div>
     </main>
