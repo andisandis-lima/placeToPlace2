@@ -14,13 +14,10 @@
         </div>
         <!--Conteudo-->
         <div class="fundo">
-            <div class="adm">
-                <p>Local:</p>
-            </div>
             <div class="card" style="width: 90%;"> 
                 <% if (jogo && jogo.length != 0) { %>
                     <% jogo.map(jogo => { %>
-                
+                        <img class="card-img-top" src="/uploads/<%= jogo.fotoLugar %>" alt="Imagem de capa do card">
                         <div class="card-body">
                             <h5 class="card-title"><%= jogo.esporte %> - <%= jogo.data %> às <%= jogo.hora %> </h5>
                             <ul class="list-group">

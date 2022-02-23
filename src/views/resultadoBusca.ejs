@@ -6,19 +6,35 @@
   <main>
     <!--Titulo da Página-->
     <div class="fundo">
-      <div class="card" style="width: 90%">
-          <div class="card-body">
-            <h5 class="card-title"><%= jogo.esporte %> - <%= jogo.data %> às <%= jogo.hora %> </h5>
-            <ul class="list-group">
-            <li class="list-group-item">  
-              <%= jogo.endereco %> , N° <%= jogo.numero %>,<br>
-              <%= jogo.bairro %>, <br>
-              <%= jogo.cep %> <br>
-            </li>
-            </ul>
-          </div>
-      </div>
-    </div>
+     
+      <div class="card" style="width: 90%;"> 
+          <% if (jogo && jogo.length != 0) { %>
+              <% jogo.filter(jogo => { %>
+                  <img class="card-img-top" src="/uploads/<%= jogo.fotoLugar %>" alt="Imagem de capa do card">
+                  <div class="card-body">
+                      <h5 class="card-title"><%= jogo.esporte %> - <%= jogo.data %> às <%= jogo.hora %> </h5>
+                      <ul class="list-group">
+                      <li class="list-group-item">  
+                      <%= jogo.endereco %> , N° <%= jogo.numero %>,<br>
+                      <%= jogo.bairro %>, <br>
+                      <%= jogo.cep %> <br>
+                      </li>
+                      </ul>
+                      <div class="editarApagar">
+
+                          <form method="GET" action="/"><button class="btn btn-primary botao editar">Participar da Partida</button></form>
+                         
+                      </div>
+              <% }); %>
+              <% } else { %>
+                  <div class="row justify-content-center">
+                      <h2>Nenhum jogo encontrado</h2>
+                  </div>
+    
+                  <div class="row justify-content-center">
+                      <form action="/criarJogo" method="GET"><button id="singlebutton" class="btn btn-primary botao editar">Criar um jogo novo</button></form>
+                  </div>
+              <% } %>
     
   </main>
   <%- include('./partials/footer') %>  

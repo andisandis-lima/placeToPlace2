@@ -8,24 +8,35 @@ const jogosController = {
       res.render("admPartida", { jogo });
     },
 
-    delete: (req, res) => {
-      const { id } = req.params; //pega o usuario
-      Jogos.delete(id); // deleta o usuario
-      const jogo = Jogos.findAll();
-      res.render('admPartida', { jogo }); //redireciona
+    delete: async (req, res) => {
+      try {
+        const { id } = req.params; //pega o usuario
+        await Jogos.removeFotos(id);
+        Jogos.delete(id); // deleta o usuario
+        const jogo = Jogos.findAll();
+
+        req.session.jogo = jogo;
+        res.redirect("admPartida", jogo)
+        //res.render('admPartida', { jogo }); //redireciona
+      } 
+      catch(err) {
+        console.log(err)
+      }
     },
 
     //CRIAR
     showCriar: (req, res) => {
-      res.render('criarJogo');
+      const jogo = Jogos.findAll();
+      res.render('criarJogo', { jogo });
     },
 
-    store:(req, res) => { // Rota para criar um usuário
+    store:(req, res, next) => { // Rota para criar um usuário
       const jogo = req.body; //pega o corpo da requisicao, onde está os dados do usuario (req.body)
-      Jogos.create(jogo); //chamando o metodo da model passando o usuario como parametro
-      //e o arquivo da imagem
+      const fotoLugar = req.file ? req.file.filename : undefined;
+      Jogos.create(jogo, fotoLugar);
       //res.redirect('/resultadoJogoCriado'); //redirecionando para tela desejada 
-      res.render('resultadoJogoCriado', { jogo });
+      req.session.jogo = jogo;
+      res.redirect('resultadoJogoCriado');
     },
 
     //EDITAR
@@ -34,11 +45,10 @@ const jogosController = {
       },
 
       update: (req, res) => {
-        //const { id } = req.params; //pegando o id
-        //const jogo = req.body; //pegando o usuario
-        //Jogos.update(id, jogo); 
-        //res.render('resultadoJogoCriado');
-        res.send("ok");
+        const { id } = req.params; //pegando o id
+        const jogo = req.body; //pegando o usuario
+        Jogos.update(id, jogo);   
+        res.render('resultadoJogoCriado');
     },
 
     //BUSCAR
@@ -47,11 +57,10 @@ const jogosController = {
         },
         
         search:(req, res) => { //para pegar um user
-        //const { bairro, cidade, estado, data, esporte } = req.params; //pega id
-        //const jogo = Jogos.filter(bairro, cidade, estado, data, esporte); //procura
-        //res.render('buscarJogos', { jogo }); //renderiza e passa dados do user
-        res.send('ok');
-    },
+          const { bairro, cidade, estado, data, esporte } = req.params; //pega id
+          const jogo = Jogos.filter(bairro, cidade, estado, data, esporte); //procura
+          res.render('resultadoBusca', { jogo }); //renderiza e passa dados do user
+        },
 
     //rotas exemplos
 
@@ -63,7 +72,12 @@ const jogosController = {
     //GERENCIAR PARTIDA
     gerenciarPartida: (req, res) => {
         res.render("gerenParticipantes");
-    }
+    },
+
+    resultJogoCriado: (req, res) => {
+      const jogo = req.session.jogo
+      res.render("resultadoJogoCriado");
+  }
 }
 
 module.exports = jogosController;
