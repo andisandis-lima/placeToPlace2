@@ -8,16 +8,16 @@
     <div class="fundo">
      
       <div class="card" style="width: 90%;"> 
-          <% if (jogo && jogo.length != 0) { %>
-              <% jogo.filter(jogo => { %>
-                  <img class="card-img-top" src="/uploads/<%= jogo.fotoLugar %>" alt="Imagem de capa do card">
+          <% if (jogos && jogos.length != 0) { %>
+              <% jogos.forEach(jogos => { %>
+                  <img class="card-img-top" src="/uploads/<%= jogos.fotoLugar %>" alt="Imagem de capa do card">
                   <div class="card-body">
-                      <h5 class="card-title"><%= jogo.esporte %> - <%= jogo.data %> às <%= jogo.hora %> </h5>
+                      <h5 class="card-title"><%= jogos.esporte %> - <%= jogos.data %> às <%= jogos.hora %> </h5>
                       <ul class="list-group">
                       <li class="list-group-item">  
-                      <%= jogo.endereco %> , N° <%= jogo.numero %>,<br>
-                      <%= jogo.bairro %>, <br>
-                      <%= jogo.cep %> <br>
+                      <%= jogos.endereco %> , N° <%= jogos.numero %>,<br>
+                      <%= jogos.bairro %>, <br>
+                      <%= jogos.cep %> <br>
                       </li>
                       </ul>
                       <div class="editarApagar">

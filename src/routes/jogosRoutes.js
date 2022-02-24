@@ -7,18 +7,18 @@ const { storage } = require('../config/upLoad'); //importando router do express
 
 const jogosController = require('../controllers/jogosController');
 
-const upload = multer({ storage });
+const uploadSingle = multer({ storage });
 
 router.get('/admPartida', jogosController.showAdm); 
 router.delete('/jogo/:id', jogosController.delete);
 
 //CRIAR - OK
 router.get('/criarJogo', jogosController.showCriar);
-router.post('/jogoCriado', upload.single('fotoLugar'), jogosController.store);
+router.post('/jogoCriado', uploadSingle.single('fotoLugar'), jogosController.store);
 
 //EDITAR - PUT erros
-router.get('/editar/:id', jogosController.edit);
-router.put('/editar/:id', upload.single('fotoLugar'), jogosController.update);
+router.get('/editarJogo/:id', jogosController.edit);
+router.put('/editar/:id', uploadSingle.single('fotoLugar'), jogosController.update);
 
 //BUSCA - POST erros
 router.get('/buscarJogos', jogosController.show); //criar filtro com metodo index

@@ -15,14 +15,15 @@
         <!--Conteudo-->
         <div class="fundo">
             <div class="card" style="width: 90%">
-                <img class="card-img-top" src="/uploads/<%= jogo.fotoLugar %>" alt="Imagem de capa do card">
+                <img class="card-img-top" src="/uploads/<%= jogos.fotoLugar %>" alt="Imagem de capa do card">
                 <div class="card-body">
-                  <h5 class="card-title"><%= jogo.esporte %> - <%= jogo.data %> às <%= jogo.hora %> </h5>
+                  <h5 class="card-title"><%= jogos.esporte %> - <%= jogos.data %> às <%= jogos.hora %> </h5>
                   <ul class="list-group">
                   <li class="list-group-item">  
-                    <%= jogo.endereco %> , N° <%= jogo.numero %>,<br>
-                    <%= jogo.bairro %>, <br>
-                    <%= jogo.cep %> <br>
+                    <%= jogos.endereco %> , N° <%= jogos.numero %>,<br>
+                    <%= jogos.bairro %>, <br>
+                    <%= jogos.estado %>, <br>
+                    <%= jogos.cep %> <br>
                   </li>
                   </ul>
                 </div>

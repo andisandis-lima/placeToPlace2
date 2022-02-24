@@ -15,16 +15,16 @@
         <!--Conteudo-->
         <div class="fundo">
             <div class="card" style="width: 90%;"> 
-                <% if (jogo && jogo.length != 0) { %>
-                    <% jogo.map(jogo => { %>
-                        <img class="card-img-top" src="/uploads/<%= jogo.fotoLugar %>" alt="Imagem de capa do card">
+                <% if (jogos && jogos.length != 0) { %>
+                    <% jogos.map(jogos => { %>
+                        <img class="card-img-top" src="/uploads/<%= jogos.fotoLugar %>" alt="Imagem de capa do card">
                         <div class="card-body">
-                            <h5 class="card-title"><%= jogo.esporte %> - <%= jogo.data %> às <%= jogo.hora %> </h5>
+                            <h5 class="card-title"><%= jogos.esporte %> - <%= jogos.data %> às <%= jogos.hora %> </h5>
                             <ul class="list-group">
                             <li class="list-group-item">  
-                            <%= jogo.endereco %> , N° <%= jogo.numero %>,<br>
-                            <%= jogo.bairro %>, <br>
-                            <%= jogo.cep %> <br>
+                            <%= jogos.endereco %> , N° <%= jogos.numero %>,<br>
+                            <%= jogos.bairro %>, <br>
+                            <%= jogos.cep %> <br>
                             </li>
                             </ul>
                             <div class="editarApagar">
@@ -32,7 +32,7 @@
                                 <form method="GET" action="/editarJogo"><button class="btn btn-primary botao editar">Editar</button></form>
                                 <!--<a class="btn btn-primary botao editar" href="/editarJogo">Editar</a>-->
 
-                                <form method="POST" action="/jogo/<%= jogo && jogo.id %>?_method=DELETE"><button class="btn btn-primary botao editar">Apagar</button></form>
+                                <form method="POST" action="/jogo/<%= jogos && jogos.id %>?_method=DELETE"><button class="btn btn-primary botao editar">Apagar</button></form>
 
                                 <form method="GET" action="/participantes"><button class="btn btn-primary botao editar">Geranciar Particiapantes</button></form>
                                 

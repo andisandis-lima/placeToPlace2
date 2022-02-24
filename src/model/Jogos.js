@@ -15,29 +15,29 @@ const writeToDB = () => { //atualizando no banco de dados, pega o db da memoria 
 const Jogos = {
     
   delete: (id) => {
-    const jogoIndex = db.jogos.findIndex(jogo => jogo.id == id); //pega o indice do usuario 
-    db.jogos.splice(jogoIndex, 1); //splice - deleta um elemento de um array nao sabendo a posicao
+    const jogosIndex = db.jogos.findIndex(jogos => jogos.id == id); //pega o indice do usuario 
+    db.jogos.splice(jogosIndex, 1); //splice - deleta um elemento de um array nao sabendo a posicao
     //que esta, passa o indice e dele um elemento daquele indice, Indice vem a partir do
     //userIndex e apaga so um 1 elemento
     writeToDB(); // grava no json
   },
 
-  create: (jogo, fotoLugar) => { //recebe o usuario e a imagem como parametro
-    const novoJogo = { id: v4(), ...jogo, fotoLugar };
+  create: (jogos, fotoLugar) => { //recebe o usuario e a imagem como parametro
+    const novoJogo = { id: v4(), ...jogos, fotoLugar };
     db.jogos.push( novoJogo ); 
     writeToDB();
     
     },
   
    update: (id, jogo, fotoLugar) => {
-    const jogoIndex = db.jogos.findIndex(jogo => jogo.id == id); 
-    db.jogos[jogoIndex] = fotoLugar ? { id, ...jogo, fotoLugar } : { id, ...jogo };
+    const jogoIndex = db.jogos.findIndex(jogos => jogos.id == id); 
+    db.jogos[jogoIndex] = fotoLugar ? { id, ...jogos, fotoLugar } : { id, ...jogos };
     writeToDB();
   },
 
   removeFotos: async (id) => { 
     try {
-      const jogoIndex = db.jogos.findIndex(jogo => jogo.id == id); //procurando
+      const jogoIndex = db.jogos.findIndex(jogos => jogos.id == id); //procurando
       await fs.promises.unlink( //manipulacao de arquivos com o filesystem (fs), unlink é para deletar um arquivo
             uploadPath + '/' + db.jogos[jogoIndex].fotoLugar //caminho da imagem contatenado com o nome da imagem
     );}
@@ -51,24 +51,24 @@ const Jogos = {
   },
 
   findById: (id) => {
-    return db.jogos.find(jogo => jogo.id == id); 
+    return db.jogos.find(jogos => jogos.id == id); 
   },
 
    filter: (bairro, cidade, estado, data, esporte) => {
-     return db.jogos.filter(jogo => {
-       if (bairro && jogo.bairro != bairro) { 
+     return db.jogos.filter(jogos => {
+       if (bairro && jogos.bairro != bairro) { 
          return false
        };
-       if (cidade && jogo.cidade != cidade) { 
+       if (cidade && jogos.cidade != cidade) { 
         return false
       };
-      if (estado && jogo.estado != estado) { 
+      if (estado && jogos.estado != estado) { 
         return false
       };
-      if (data && jogo.data != data) { 
+      if (data && jogos.data != data) { 
         return false
       };
-      if (esporte && jogo.esporte != esporte) { 
+      if (esporte && jogos.esporte != esporte) { 
         return false
       }
 
