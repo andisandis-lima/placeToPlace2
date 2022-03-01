@@ -11,8 +11,7 @@
                 </div>
                 <div class="fundo">
                     <!--Formulário-->
-                    <!--Rota para editar <form id="formulario" action='/editarJogo/:id?_method=PUT' method="POST">-->
-                    <form id="formulario" method="POST" action="/editarJogo<%= jogos && jogos.id %>?_method=PUT" >
+                    <form id="formulario" action='/editarJogo/<%= jogos && jogos.id %>?_method=PUT' method="POST">
                         <div class="container">
                             <div class="row">
                                 <div class="col-sm-3 campos">

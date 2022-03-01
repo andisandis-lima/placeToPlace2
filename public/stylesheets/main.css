@@ -161,7 +161,9 @@ nav{
     margin-top: 15%;
 }
 
-
+.errors {
+    color: aqua;
+}
 /*icones redes socias do footer*/
 
 .icone {

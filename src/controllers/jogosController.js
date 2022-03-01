@@ -1,5 +1,7 @@
 const Jogos = require('../model/Jogos');
 
+const { check, validationResult, body } = require('express-validator');
+
 const jogosController = { 
   //ADM
   showAdm: (req, res) => {
@@ -32,21 +34,30 @@ const jogosController = {
     const jogos = req.body; 
     Jogos.update(id, jogos);   
     req.session.jogos = jogos;
-    res.redirect('resultadoJogoCriado');
+    console.log(jogos);
+    res.redirect('/resultadoJogoCriado');
   },
   //CRIAR
   showCriar: (req, res) => {
-    const jogos = Jogos.findAll();
-    res.render('criarJogo', { jogos });
+      const jogos = Jogos.findAll();
+      res.render('criarJogo', { jogos });
+  
   },
 
   store:(req, res, next) => { // Rota para criar um usuário
-    const jogos = req.body; //pega o corpo da requisicao, onde está os dados do usuario (req.body)
-    const fotoLugar = req.file ? req.file.filename : undefined;
-    Jogos.create(jogos, fotoLugar);
-    //res.redirect('/resultadoJogoCriado'); //redirecionando para tela desejada 
-    req.session.jogos = jogos;
-    res.redirect('resultadoJogoCriado');
+    let errors = validationResult(req);
+    if(errors.isEmpty()) {
+      const jogos = req.body; //pega o corpo da requisicao, onde está os dados do usuario (req.body)
+      const fotoLugar = req.file ? req.file.filename : undefined;
+      Jogos.create(jogos, fotoLugar);
+      //res.redirect('/resultadoJogoCriado'); //redirecionando para tela desejada 
+      req.session.jogos = jogos;
+      res.redirect('resultadoJogoCriado');
+    } else {
+      res.render('criarJogo', { errors: errors.mapped(), old: req.body });
+      
+    };
+    console.log(errors)
   },
  
   //BUSCAR

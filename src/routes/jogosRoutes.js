@@ -5,7 +5,7 @@ const multer = require('multer');
 
 const { storage } = require('../config/upLoad'); 
 const jogosController = require('../controllers/jogosController');
-const jogoCriadoValidator = require('../middleware/validators/jogoCriadoValidator');
+const criarJogoValidator = require('../middleware/validators/criarJogoValidator');
 
 const uploadSingle = multer({ storage });
 
@@ -13,7 +13,7 @@ router.get('/admPartida', jogosController.showAdm);
 router.delete('/jogo/:id', jogosController.delete);
 
 router.get('/criarJogo', jogosController.showCriar);
-router.post('/jogoCriado', jogoCriadoValidator, uploadSingle.single('fotoLugar'), jogosController.store);
+router.post('/jogoCriado', criarJogoValidator, uploadSingle.single('fotoLugar'), jogosController.store);
 
 router.get('/editarJogo/:id', jogosController.edit);
 router.put('/editar/:id', uploadSingle.single('fotoLugar'), jogosController.update);
