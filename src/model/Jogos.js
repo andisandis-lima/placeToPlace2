@@ -15,7 +15,7 @@ const writeToDB = () => { //atualizando no banco de dados, pega o db da memoria 
 const Jogos = {
     
   delete: (id) => {
-    const jogosIndex = db.jogos.findIndex(jogos => jogos.id == id); //pega o indice do usuario 
+    const jogosIndex = db.jogos.findIndex(jogo => jogo.id == id); //pega o indice do usuario 
     db.jogos.splice(jogosIndex, 1); //splice - deleta um elemento de um array nao sabendo a posicao
     //que esta, passa o indice e dele um elemento daquele indice, Indice vem a partir do
     //userIndex e apaga so um 1 elemento
@@ -26,18 +26,18 @@ const Jogos = {
     const novoJogo = { id: v4(), ...jogos, fotoLugar };
     db.jogos.push( novoJogo ); 
     writeToDB();
-    
+    return novoJogo
     },
   
-   update: (id, jogo, fotoLugar) => {
-    const jogoIndex = db.jogos.findIndex(jogos => jogos.id == id); 
+   update: (id, jogos, fotoLugar) => {
+    const jogoIndex = db.jogos.findIndex(jogo => jogo.id == id); 
     db.jogos[jogoIndex] = fotoLugar ? { id, ...jogos, fotoLugar } : { id, ...jogos };
     writeToDB();
   },
 
   removeFotos: async (id) => { 
     try {
-      const jogoIndex = db.jogos.findIndex(jogos => jogos.id == id); //procurando
+      const jogoIndex = db.jogos.findIndex(jogo => jogo.id == id); //procurando
       await fs.promises.unlink( //manipulacao de arquivos com o filesystem (fs), unlink é para deletar um arquivo
             uploadPath + '/' + db.jogos[jogoIndex].fotoLugar //caminho da imagem contatenado com o nome da imagem
     );}
@@ -51,7 +51,7 @@ const Jogos = {
   },
 
   findById: (id) => {
-    return db.jogos.find(jogos => jogos.id == id); 
+    return db.jogos.find(jogo => jogo.id == id); 
   },
 
    filter: (bairro, cidade, estado, data, esporte) => {
@@ -74,6 +74,8 @@ const Jogos = {
 
       return true 
      })
+
+     
    }
 }
 

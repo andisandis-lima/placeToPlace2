@@ -171,6 +171,15 @@ nav{
     color: #000000 !important
 }
 
+.feedback {
+    color: #ffffff;
+    font-size: 16px !important;
+}
+
+.tituloCampos {
+    color: #ffffff;
+    font-size: 16px !important;
+}
 
 @media only screen and (max-width:500px) {
 

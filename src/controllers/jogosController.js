@@ -26,16 +26,16 @@ const jogosController = {
     const jogos = Jogos.findById(id);
     
     res.render('editarJogo', {jogos})
-      //pegar id do jogo, dar um findOne pra pegar jogo, e depois passar pra view
+
   },
 
   update: (req, res) => {
     const { id } = req.params; 
     const jogos = req.body; 
-    Jogos.update(id, jogos);   
+    const fotoLugar = req.file ? req.file.filename : undefined;
+    Jogos.update(id, jogos, fotoLugar);   
     req.session.jogos = jogos;
-    console.log(jogos);
-    res.redirect('/resultadoJogoCriado');
+    res.redirect(`/resultadoJogoCriado/${id}`);
   },
   //CRIAR
   showCriar: (req, res) => {
@@ -44,20 +44,17 @@ const jogosController = {
   
   },
 
-  store:(req, res, next) => { // Rota para criar um usuário
+  store:(req, res) => { // Rota para criar um usuário
     let errors = validationResult(req);
     if(errors.isEmpty()) {
       const jogos = req.body; //pega o corpo da requisicao, onde está os dados do usuario (req.body)
       const fotoLugar = req.file ? req.file.filename : undefined;
-      Jogos.create(jogos, fotoLugar);
-      //res.redirect('/resultadoJogoCriado'); //redirecionando para tela desejada 
-      req.session.jogos = jogos;
-      res.redirect('resultadoJogoCriado');
+      const create = Jogos.create(jogos, fotoLugar);
+      res.redirect(`resultadoJogoCriado/${create.id}`);
     } else {
       res.render('criarJogo', { errors: errors.mapped(), old: req.body });
       
     };
-    console.log(errors)
   },
  
   //BUSCAR
@@ -73,7 +70,8 @@ const jogosController = {
 
   //rotas exemplos
   resultJogoCriado: (req, res) => {
-    const jogos = req.session.jogos
+    const { id } = req.params;
+    const jogos = Jogos.findById(id);
     res.render("resultadoJogoCriado", { jogos });
   },
   //INDEX

@@ -13,83 +13,112 @@
                 <div class="fundo">
                     <!--Formulário-->
                     <div class="errors">
-                       
-                        <% if(typeof(errors) != "undefined"){ %> 
-                            <h1>gjngkjgnkj</h1>
-                            <% Array.from(errors).map(errors => { %>
-                                <%= errors.msg %> 
-                            <% }); %>
-                        <% }; %>
+
                     </div>
                     <form id="formulario" name="form" action="/jogoCriado" method="POST" enctype="multipart/form-data">
                         <div class="container">
                             <div class="row">
-                                <div class="col-sm-3 campos">
-                                    <label for="formGroupExampleInput"></label>
-                                    <input type="text" class="form-control" name="cep" id="formGroupExampleInput"
-                                        placeholder="CEP">
 
+                                <div class="col-sm-3 campos">
+                                    <label for="formGroupExampleInput" class="tituloCampos"> CEP </label>
+                                    <input type="text" class="form-control" name="cep" id="formGroupExampleInput"
+                                        value="<%= locals.old && old.cep %> ">
+                                    <% if(locals.errors && errors.cep){%> 
+                                        <p class="feedback"> <%= errors.cep.msg %>  </p>
+                                    <% }; %> 
                                 </div>
 
                                 <div class="col-sm-8 campos">
-                                    <label for="formGroupExampleInput"></label>
+                                    <label for="formGroupExampleInput" class="tituloCampos"> Endereço </label>
                                     <input type="text" class="form-control" name="endereco" id="formGroupExampleInput"
-                                        placeholder="Endereço">
+                                        value="<%= locals.old && old.endereco %> ">
+                                    <% if(locals.errors && errors.endereco){%> 
+                                        <p class="feedback"> <%= errors.endereco.msg %>  </p>
+                                    <% }; %> 
                                 </div>
+
                             </div>
                             <div class="row">
+
                                 <div class="col-sm-2 campos">
-                                    <label for="formGroupExampleInput"></label>
+                                    <label for="formGroupExampleInput" class="tituloCampos"> N° </label>
                                     <input type="text" class="form-control" name="numero" id="formGroupExampleInput"
-                                        placeholder="N°">
+                                        value="<%= locals.old && old.numero %> ">
+                                    <% if(locals.errors && errors.numero){%> 
+                                        <p class="feedback"> <%= errors.numero.msg %>  </p>
+                                    <% }; %> 
                                 </div>
+
                                 <div class="col-sm-3 campos">
-                                    <label for="formGroupExampleInput"></label>
+                                    <label for="formGroupExampleInput" class="tituloCampos"> Bairro </label>
                                     <input type="text" class="form-control" name="bairro" id="formGroupExampleInput"
-                                        placeholder="Bairro">
+                                        value="<%= locals.old && old.bairro %> ">
+                                    <% if(locals.errors && errors.bairro){%> 
+                                        <p class="feedback"> <%= errors.bairro.msg %>  </p>
+                                    <% }; %> 
                                 </div>
+
                                 <div class="col-sm-2 campos">
-                                    <label for="formGroupExampleInput"></label>
+                                    <label for="formGroupExampleInput" class="tituloCampos"> UF </label>
                                     <input type="text" class="form-control" name="estado" id="formGroupExampleInput"
-                                        placeholder="UF">
+                                        value="<%= locals.old && old.estado %> ">
+                                     <% if(locals.errors && errors.estado){%> 
+                                        <p class="feedback"> <%= errors.estado.msg %>  </p>
+                                    <% }; %> 
                                 </div>
+
                                 <div class="col-sm-4 campos">
-                                    <label for="formGroupExampleInput"></label>
+                                    <label for="formGroupExampleInput" class="tituloCampos"> Cidade </label>
                                     <input type="text" class="form-control" name="cidade" id="formGroupExampleInput"
-                                        placeholder="Cidade">
+                                        value="<%= locals.old && old.cidade %> ">
+                                     <% if(locals.errors && errors.cidade){%> 
+                                        <p class="feedback"> <%= errors.cidade.msg %>  </p>
+                                    <% }; %> 
                                 </div>
                             </div>
+
                             <div class="row">
                                 <div class="col-sm-4 campos">
-                                    <label for="formGroupExampleInput"></label>
+                                    <label for="formGroupExampleInput" class="tituloCampos"> Data </label>
                                     <input type="text" class="form-control" name="data" id="formGroupExampleInput"
-                                        placeholder="Data">
+                                        value="<%= locals.old && old.data %> ">
+                                     <% if(locals.errors && errors.data){%> 
+                                        <p class="feedback"> <%= errors.data.msg %>  </p>
+                                    <% }; %> 
                                 </div>
+
                                 <div class="col-sm-3 campos">
-                                    <label for="formGroupExampleInput"></label>
+                                    <label for="formGroupExampleInput" class="tituloCampos"> Horário </label>
                                     <input type="text" class="form-control" name="hora" id="formGroupExampleInput"
-                                        placeholder="Horário">
+                                        value="<%= locals.old && old.hora %> ">
+                                     <% if(locals.errors && errors.hora){%> 
+                                        <p class="feedback"> <%= errors.hora.msg %>  </p>
+                                    <% }; %> 
                                 </div>
+
                                 <div class="col-sm-4 campos">
-                                    <label for="formGroupExampleInput"></label>
+                                    <label for="formGroupExampleInput" class="tituloCampos"> Esporte </label>
                                     <input type="text" class="form-control" name="esporte" id="formGroupExampleInput"
-                                        placeholder="Esporte">
+                                        value="<%= locals.old && old.esporte %> ">
+                                     <% if(locals.errors && errors.esporte){%> 
+                                        <p class="feedback"> <%= errors.esporte.msg %>  </p>
+                                    <% }; %> 
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-sm-10 campos">
+                                    <label for="inputFile" class="tituloCampos">Adicione aqui fotos do local</label>
                                     <div id="inputFile" class="campos inputFile icones">
                                         <label>
-                                            <ion-icon size="large" name="camera"></ion-icon>
+                                            <ion-icon size="large" name="camera"></ion-icon> 
                                         </label>
-                                        <input type="file" name="fotoLugar" id="fotoLugar" class="form-control campos"
-                                            multiple>
+                                        <input type="file" name="fotoLugar" id="fotoLugar" class="form-control campos">
                                     </div>
 
                                 </div>
                             </div>
-
+                            
                             <!--Botão Criar-->
                             <div class="row">
                                 <div class="text-center col-sm-10 campos">
