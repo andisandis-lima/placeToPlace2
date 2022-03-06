@@ -13,14 +13,14 @@ router.get('/admPartida', jogosController.showAdm);
 router.delete('/jogo/:id', jogosController.delete);
 
 router.get('/criarJogo', jogosController.showCriar);
-router.post('/jogoCriado', uploadSingle.single('fotoLugar'), criarJogoValidator ,jogosController.store);
+router.post('/jogoCriado', criarJogoValidator, uploadSingle.single('fotoLugar') ,jogosController.store);
 
 router.get('/editarJogo/:id', jogosController.edit);
 router.put('/editar/:id', uploadSingle.single('fotoLugar'), jogosController.update);
 
 router.get('/buscarJogos', jogosController.show);
 router.get('/procurarJogos', jogosController.search);
-
+ 
 router.get('/', jogosController.showIndex);
 
 router.post('/', jogosController.showIndex); 

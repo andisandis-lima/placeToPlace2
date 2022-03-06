@@ -3,10 +3,10 @@ const { check, validationResult, body } = require('express-validator');
 const criarJogoValidator = [
     check('cep')
         .notEmpty().withMessage('O campo CEP deve ser preenchido'),
-    check('endereco')
-        .notEmpty().withMessage('O campo Endereço deve ser preenchido').bail(),
+    check('endereco') 
+        .notEmpty().withMessage('O campo Endereço deve ser preenchido'),
     check('numero')
-        .isInt().withMessage('Somente numeros'),
+        .notEmpty().withMessage('O campo Número deve ser preenchido'),
     check('bairro')
         .notEmpty().withMessage('O campo Endereço deve ser preenchido'),
     check('estado')
@@ -18,7 +18,7 @@ const criarJogoValidator = [
     check('hora')
         .notEmpty().withMessage('O campo Horário deve ser preenchido'),
     check('esporte')
-        .notEmpty().withMessage('O campo Esporte deve ser preenchido.Exemplo: Basquete, Volêi ...')
+        .notEmpty().withMessage('O campo Esporte deve ser preenchido')
 ];
 
 

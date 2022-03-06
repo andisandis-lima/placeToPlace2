@@ -22,7 +22,7 @@
                                 <div class="col-sm-3 campos">
                                     <label for="formGroupExampleInput" class="tituloCampos"> CEP </label>
                                     <input type="text" class="form-control" name="cep" id="formGroupExampleInput"
-                                        value="<%= locals.old && old.cep %> ">
+                                        value=" <%= locals.old && old.cep %> ">
                                     <% if(locals.errors && errors.cep){%> 
                                         <p class="feedback"> <%= errors.cep.msg %>  </p>
                                     <% }; %> 
@@ -30,7 +30,7 @@
 
                                 <div class="col-sm-8 campos">
                                     <label for="formGroupExampleInput" class="tituloCampos"> Endereço </label>
-                                    <input type="text" class="form-control" name="endereco" id="formGroupExampleInput"
+                                    <input type="textarea" class="form-control" name="endereco" id="formGroupExampleInput"
                                         value="<%= locals.old && old.endereco %> ">
                                     <% if(locals.errors && errors.endereco){%> 
                                         <p class="feedback"> <%= errors.endereco.msg %>  </p>

@@ -19,6 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(express.json());
 
+
 app.use(session({   
     secret: process.env.SENHA_SESSION,
     resave: false,

@@ -45,16 +45,16 @@ const jogosController = {
   },
 
   store:(req, res) => { // Rota para criar um usuário
-    let errors = validationResult(req);
+    const errors = validationResult(req);
     if(errors.isEmpty()) {
       const jogos = req.body; //pega o corpo da requisicao, onde está os dados do usuario (req.body)
       const fotoLugar = req.file ? req.file.filename : undefined;
       const create = Jogos.create(jogos, fotoLugar);
       res.redirect(`resultadoJogoCriado/${create.id}`);
     } else {
-      res.render('criarJogo', { errors: errors.mapped(), old: req.body });
-      
+      res.render('criarJogo', { errors: errors.mapped(), old: req.body});
     };
+    console.log(errors)
   },
  
   //BUSCAR
