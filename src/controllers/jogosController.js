@@ -1,10 +1,11 @@
 const Jogos = require('../model/Jogos');
 
+const { check, validationResult, body } = require('express-validator');
+
 const jogosController = { 
   //ADM
   showAdm: (req, res) => {
       const jogos = Jogos.findAll();
-      console.log(req.query)
       res.render("admPartida", { jogos });
   },
 
@@ -19,34 +20,43 @@ const jogosController = {
           console.log(err)
     }
   },
-  //CRIAR
-  showCriar: (req, res) => {
-    const jogos = Jogos.findAll();
-    res.render('criarJogo', { jogos });
-  },
-
-  store:(req, res, next) => { // Rota para criar um usuário
-    const jogos = req.body; //pega o corpo da requisicao, onde está os dados do usuario (req.body)
-    const fotoLugar = req.file ? req.file.filename : undefined;
-    Jogos.create(jogos, fotoLugar);
-    //res.redirect('/resultadoJogoCriado'); //redirecionando para tela desejada 
-    req.session.jogos = jogos;
-    res.redirect('resultadoJogoCriado');
-  },
-  //EDITAR
-  edit:(req, res) => {
-    res.render('editarJogo');
+   //EDITAR
+   edit:(req, res) => {
     const { id } = req.params;
-    Jogos.findById(id);
-      //pegar id do jogo, dar um findOne pra pegar jogo, e depois passar pra view
+    const jogos = Jogos.findById(id);
+    
+    res.render('editarJogo', {jogos})
+
   },
 
   update: (req, res) => {
-    const { id } = req.params; //pegando o id
-    const jogos = req.body; //pegando o usuario
-    Jogos.update(id, jogos);   
-    res.render('resultadoJogoCriado');
+    const { id } = req.params; 
+    const jogos = req.body; 
+    const fotoLugar = req.file ? req.file.filename : undefined;
+    Jogos.update(id, jogos, fotoLugar);   
+    req.session.jogos = jogos;
+    res.redirect(`/resultadoJogoCriado/${id}`);
   },
+  //CRIAR
+  showCriar: (req, res) => {
+      const jogos = Jogos.findAll();
+      res.render('criarJogo', { jogos });
+  
+  },
+
+  store:(req, res) => { // Rota para criar um usuário
+    const errors = validationResult(req);
+    if(errors.isEmpty()) {
+      const jogos = req.body; //pega o corpo da requisicao, onde está os dados do usuario (req.body)
+      const fotoLugar = req.file ? req.file.filename : undefined;
+      const create = Jogos.create(jogos, fotoLugar);
+      res.redirect(`resultadoJogoCriado/${create.id}`);
+    } else {
+      res.render('criarJogo', { errors: errors.mapped(), old: req.body});
+    };
+    console.log(errors)
+  },
+ 
   //BUSCAR
   show:(req, res) => {
     res.render('buscarJogos');
@@ -54,15 +64,15 @@ const jogosController = {
         
   search:(req, res) => { //para pegar um user
     const { bairro, cidade, estado, data, esporte } = req.query; //pega id
-    console.log(req.query);
     const jogos = Jogos.filter(bairro, cidade, estado, data, esporte); //procura
     res.render('resultadoBusca', { jogos }); //renderiza e passa dados do user
   },
 
   //rotas exemplos
   resultJogoCriado: (req, res) => {
-    const jogos = req.session.jogos
-    res.render("resultadoJogoCriado");
+    const { id } = req.params;
+    const jogos = Jogos.findById(id);
+    res.render("resultadoJogoCriado", { jogos });
   },
   //INDEX
   showIndex: (req, res) => {

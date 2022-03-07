@@ -1,43 +1,50 @@
 <%- include('./partials/head') %>
 
-<body>
-  
-  <%- include('./partials/header') %>      
-  <main>
-    <!--Titulo da Página-->
-    <div class="fundo">
-     
-      <div class="card" style="width: 90%;"> 
-          <% if (jogos && jogos.length != 0) { %>
-              <% jogos.forEach(jogos => { %>
-                  <img class="card-img-top" src="/uploads/<%= jogos.fotoLugar %>" alt="Imagem de capa do card">
-                  <div class="card-body">
-                      <h5 class="card-title"><%= jogos.esporte %> - <%= jogos.data %> às <%= jogos.hora %> </h5>
-                      <ul class="list-group">
-                      <li class="list-group-item">  
-                      <%= jogos.endereco %> , N° <%= jogos.numero %>,<br>
-                      <%= jogos.bairro %>, <br>
-                      <%= jogos.cep %> <br>
-                      </li>
-                      </ul>
-                      <div class="editarApagar">
+    <body>
 
-                          <form method="GET" action="/"><button class="btn btn-primary botao editar">Participar da Partida</button></form>
-                         
-                      </div>
-              <% }); %>
-              <% } else { %>
-                  <div class="row justify-content-center">
-                      <h2>Nenhum jogo encontrado</h2>
-                  </div>
-    
-                  <div class="row justify-content-center">
-                      <form action="/criarJogo" method="GET"><button id="singlebutton" class="btn btn-primary botao editar">Criar um jogo novo</button></form>
-                  </div>
-              <% } %>
-    
-  </main>
-  <%- include('./partials/footer') %>  
+        <%- include('./partials/header') %>
+            <main>
+                <!--Titulo da Página-->
+                <div class="fundo">
 
-</body>
-</html>
+                    <div class="card" style="width: 90%;">
+                        <% if (jogos && jogos.length !=0) { %>
+                        <% jogos.forEach(jogos=> { %>
+                            <img class="card-img-top" src="/uploads/<%= jogos.fotoLugar %>"
+                                alt="Imagem de capa do card">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%= jogos.esporte %> - <%= jogos.data %> às <%= jogos.hora %>
+                                </h5>
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                    <%= jogos.endereco %> , N° <%= jogos.numero %>,<br>
+                                        <%= jogos.bairro %>, <br>
+                                        <%= jogos.cep %> <br>
+                                    </li>
+                                </ul>
+                                <div class="editarApagar">
+                                    <form method="GET" action="/"><button
+                                        class="btn btn-primary botao editar">Participar da Partida</button>
+                                    </form>
+                                </div>
+                            </div>
+                                <% }); %>
+                                <% } else { %>
+                                    <div class="row justify-content-center">
+                                        <h2>Nenhum jogo encontrado</h2>
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <form action="/criarJogo" method="GET"><button id="singlebutton"
+                                            class="btn btn-primary botao editar">Criar um jogo novo</button>
+                                        </form>
+                                    </div>
+                                <% } %>
+                    </div>
+                </div>
+            </main>
+            <%- include('./partials/footer') %>
+
+    </body>
+
+    </html>

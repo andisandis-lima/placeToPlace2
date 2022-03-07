@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <%- include('./partials/headconfirmcode') %>
-<body>
-<div class="main">
-<!--Div para remover scroll lateral e inferior-->
-        <div class="bg-vd">
-            <video autoplay muted loop src="../video/bg1.mp4"></video>
-         </div>
-        <div class="cadastro" id="bg-color">
-            <!-- div para estilizar o form-->
-        <form action="/profile" method="post" id="form1">
-            <h3 class="text-center">Digite o código de confirmação enviado para o seu endereço de e-mail.</h3>
-            <ol>
-                <li><input id="inpt" name="codigo" type="text" placeholder="Código de confirmação" size="35" required></li>
-            </ol>   
-                        <div class="text-center">
-                            <!--Div pra centralizar o btn-->
+<%- include('./partials/headconfirmcode') %>
+
+    <body>
+        <div class="main">
+            <!--Div para remover scroll lateral e inferior-->
+            <div class="bg-vd">
+                <video autoplay muted loop src="../video/bg1.mp4"></video>
+            </div>
+            <div class="cadastro" id="bg-color">
+                <!-- div para estilizar o form-->
+                <form action="/profile" method="post" id="form1">
+                    <h3 class="text-center">Digite o código de confirmação enviado para o seu endereço de e-mail.</h3>
+                    <ol>
+                        <li><input id="inpt" name="codigo" type="text" placeholder="Código de confirmação" size="35"
+                                required></li>
+                    </ol>
+                    <div class="text-center">
+                        <!--Div pra centralizar o btn-->
                         <button type="submit" form="form1" class="btn btn-dark">Criar conta!</button>
-                        </div>
-        </form>
-                </div>   
+                    </div>
+                </form>
+            </div>
         </div>
-</div>
-</body>
+        </div>
+    </body>
+
 </html>

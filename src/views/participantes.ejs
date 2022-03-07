@@ -1,37 +1,41 @@
 <%- include('./partials/head') %>
-<body>
-    <%- include('./partials/header') %>  
-     
 
-    <main>
-         <!--Titulo da Página-->
-         <div class="row justify-content-center">
-            <div class="col-auto">
-                <h1><span class="badge rounded-pill bg-success titulo">Participantes</span></h1>
-            </div>
-        </div>
-        <div class="fundo">
-            <!--Formulário-->
-            <h2>Participantes:</h2>
-            <% if (user && user.length != 0) { %>
-                <% user.map(user => { %>
-                    <form>
-                            <input type="text" class="btn btn-primary botao" placeholder="<%= user.user %>">
-                            <form method="GET" action="/retiraUser"><button class="btn btn-primary botao editar">Excluir participante</button></form>
-                    </form>
-                    <% }); %>
-                <% } else { %>
-                <h4>Nenhum parcipante no Jogo</h4>
-                <% }; %>
+    <body>
+        <%- include('./partials/header') %>
 
-                <div class="text-center"> 
-                <form action="/admPartida" method="GET"><button id="singlebutton" class="btn btn-primary botao editar">Voltar</button></form>
+
+            <main>
+                <!--Titulo da Página-->
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        <h1><span class="badge rounded-pill bg-success titulo">Participantes</span></h1>
+                    </div>
                 </div>
-        </div>
-    </main>
+                <div class="fundo">
+                    <!--Formulário-->
+                    <h2>Participantes:</h2>
+                    <% if (user && user.length !=0) { %>
+                        <% user.map(user=> { %>
+                            <form>
+                                <input type="text" class="btn btn-primary botao" placeholder="<%= user.user %>">
+                                <form method="GET" action="/retiraUser"><button
+                                        class="btn btn-primary botao editar">Excluir participante</button></form>
+                            </form>
+                        <% }); %>
+                        <% } else { %>
+                            <h4>Nenhum parcipante no Jogo</h4>
+                        <% }; %>
 
-    <%- include('./partials/footer') %>  
-    <%- include('./partials/popUp') %> 
-</body>
+                     <div class="text-center">
+                        <form action="/admPartida" method="GET"><button id="singlebutton"
+                            class="btn btn-primary botao editar">Voltar</button>
+                        </form>                            
+                    </div>
+                </div>
+            </main>
 
-</html>
+            <%- include('./partials/footer') %>
+                <%- include('./partials/popUp') %>
+    </body>
+
+    </html>
