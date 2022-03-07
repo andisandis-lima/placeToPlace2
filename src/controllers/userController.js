@@ -9,6 +9,10 @@ const userController = {
         retiraUser: (req,res) => {
           res.send("ok")  
           },
+          login: (req,res) => {
+            return res.render('login')
+          },
+
           inicio: (req, res) => {
             return res.render('cadastro')
           },
@@ -20,7 +24,16 @@ const userController = {
           },
         erro: (req, res) => {
             return res.render ('notFound')
-          }
+          },
+        esqueciSenha: (req, res) => {
+              return res.render('esqueciMinhaSenha')
+          },
+        codigo: (req, res) => {
+          return res.render('codigoEsqueciSenha')
+          },
+        novaSenha: (req, res) => {
+          return res.render('novaSenha')
+        }
         }
 
 module.exports = userController;
