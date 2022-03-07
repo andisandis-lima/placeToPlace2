@@ -3,7 +3,8 @@ require('dotenv').config();
 const express = require('express');
 const methodOverride = require('method-override');
 const session = require("express-session");
-
+const cookieParser = require('cookie-parser')
+const bcrypt = require('bcryptjs');
 // app initialization
 const app = express();
 
@@ -28,6 +29,11 @@ app.use(session({
     secure: false
     }
 }));
+
+app.use(cookieParser())
+
+let hash = bcrypt.hashSync('minhaSenha!');
+
 
 app.use('/', require('./src/routes/jogosRoutes'))
 app.use('/', require('./src/routes/userRoutes'))
